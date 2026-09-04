@@ -1,0 +1,1998 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Uma Missão Especial 🕷️💗</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Baloo+2:wght@400;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    overflow:hidden;
+    font-family:"Baloo 2", sans-serif;
+    background:#10051a;
+    color:white;
+}
+
+/* =========================
+   TELAS
+========================= */
+
+.tela{
+    width:100vw;
+    height:100vh;
+    display:none;
+    position:relative;
+    overflow:hidden;
+}
+
+.tela.ativa{
+    display:flex;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botao{
+    border:none;
+    background:linear-gradient(135deg,#ff4c98,#e91e63);
+    color:white;
+    font-family:"Baloo 2",sans-serif;
+    font-weight:800;
+    font-size:20px;
+    padding:15px 30px;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow:0 6px 0 #8d1645;
+    transition:.2s;
+}
+
+.botao:active{
+    transform:translateY(4px);
+    box-shadow:0 2px 0 #8d1645;
+}
+
+/* =========================
+   INÍCIO
+========================= */
+
+#inicio{
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:
+        radial-gradient(circle at 50% 30%,#ff4f91,transparent 25%),
+        linear-gradient(135deg,#15051d,#390a31,#0e0418);
+}
+
+.teias-fundo{
+    position:absolute;
+    inset:0;
+    opacity:.16;
+
+    background-image:
+        repeating-radial-gradient(
+            circle at center,
+            transparent 0,
+            transparent 55px,
+            #ff8fc0 57px,
+            transparent 60px
+        );
+}
+
+.card-inicio{
+    position:relative;
+    z-index:3;
+
+    width:min(90%,600px);
+
+    padding:40px 25px;
+
+    background:rgba(25,3,30,.88);
+
+    border:3px solid #ff70a8;
+    border-radius:35px;
+
+    box-shadow:
+        0 0 40px #ff3f8c,
+        inset 0 0 30px rgba(255,100,170,.1);
+}
+
+.spider-logo{
+    font-size:85px;
+
+    animation:
+        pular 1.5s infinite;
+}
+
+@keyframes pular{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.titulo{
+    font-family:"Bangers",cursive;
+
+    font-size:clamp(55px,13vw,90px);
+
+    color:#ff76ad;
+
+    letter-spacing:3px;
+
+    text-shadow:
+        4px 4px #5a123e,
+        0 0 20px #ff4c98;
+}
+
+.subtitulo{
+    font-size:20px;
+    color:#ffd8e9;
+    margin:10px 0 25px;
+}
+
+/* =========================
+   HUD
+========================= */
+
+.hud{
+    position:absolute;
+
+    top:12px;
+    left:12px;
+    right:12px;
+
+    display:flex;
+    justify-content:space-between;
+
+    z-index:50;
+
+    font-size:17px;
+}
+
+.hud-box{
+    background:rgba(0,0,0,.55);
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    border:2px solid #ff71aa;
+}
+
+/* =========================
+   FASE 1
+========================= */
+
+#fase1{
+
+    background:
+        linear-gradient(
+            rgba(25,5,35,.7),
+            rgba(10,2,18,.85)
+        ),
+        linear-gradient(
+            135deg,
+            #35104a,
+            #190625
+        );
+}
+
+.instrucao{
+    position:absolute;
+
+    top:70px;
+
+    width:100%;
+
+    text-align:center;
+
+    padding:0 15px;
+
+    font-size:19px;
+
+    color:#ffe0ed;
+}
+
+.timer{
+    color:#ff78ae;
+    font-weight:800;
+}
+
+.teia{
+
+    position:absolute;
+
+    font-size:42px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:
+        flutuar 1.2s infinite alternate;
+
+    transition:.2s;
+}
+
+.teia:active{
+    transform:scale(1.5);
+}
+
+@keyframes flutuar{
+
+    from{
+        transform:translateY(0) rotate(-5deg);
+    }
+
+    to{
+        transform:translateY(-10px) rotate(5deg);
+    }
+}
+
+/* =========================
+   FASE 2
+========================= */
+
+#fase2{
+
+    background:
+        linear-gradient(
+            rgba(10,4,25,.1),
+            rgba(10,4,25,.4)
+        ),
+        linear-gradient(
+            180deg,
+            #08091e 0%,
+            #17113b 55%,
+            #42143e 100%
+        );
+}
+
+/* LUA */
+
+.lua{
+    position:absolute;
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    background:#ffe7f3;
+
+    top:90px;
+    right:45px;
+
+    box-shadow:
+        0 0 30px #ffd6e8;
+}
+
+/* ESTRELAS */
+
+.estrela{
+    position:absolute;
+    color:#fff;
+
+    animation:
+        piscar 1.5s infinite alternate;
+}
+
+@keyframes piscar{
+
+    from{
+        opacity:.3;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* PRÉDIOS */
+
+.predios{
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:42%;
+
+    display:flex;
+    align-items:flex-end;
+    gap:5px;
+}
+
+.predio{
+    background:#17152d;
+
+    border-top:2px solid #ff75ac;
+
+    position:relative;
+
+    flex:1;
+}
+
+.janela{
+    width:7px;
+    height:9px;
+
+    background:#ff9bc3;
+
+    position:absolute;
+
+    box-shadow:0 0 7px #ff7db3;
+}
+
+/* JOGADOR */
+
+#jogador{
+
+    position:absolute;
+
+    left:50%;
+    bottom:34%;
+
+    transform:translateX(-50%);
+
+    font-size:65px;
+
+    z-index:20;
+
+    transition:left .12s ease;
+
+    filter:
+        drop-shadow(0 0 10px #ff5c9e);
+}
+
+/* TEIA DO PERSONAGEM */
+
+.teia-tiro{
+
+    position:absolute;
+
+    font-size:28px;
+
+    z-index:15;
+
+    animation:
+        tiro .4s linear forwards;
+}
+
+@keyframes tiro{
+
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-180px);
+        opacity:0;
+    }
+}
+
+/* OBSTÁCULOS */
+
+.obstaculo{
+
+    position:absolute;
+
+    top:-70px;
+
+    font-size:45px;
+
+    z-index:10;
+
+    animation:
+        cair linear forwards;
+}
+
+@keyframes cair{
+
+    to{
+        top:110%;
+    }
+}
+
+/* ARANHAS COLETÁVEIS */
+
+.coletavel{
+
+    position:absolute;
+
+    top:-50px;
+
+    font-size:38px;
+
+    z-index:12;
+
+    animation:
+        cair linear forwards;
+
+    filter:
+        drop-shadow(0 0 8px #ff70a9);
+}
+
+/* CONTROLE TOUCH */
+
+.controles{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    z-index:50;
+}
+
+.controle{
+
+    width:75px;
+    height:65px;
+
+    border-radius:20px;
+
+    border:2px solid #ff80b2;
+
+    background:rgba(20,5,35,.75);
+
+    color:white;
+
+    font-size:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    user-select:none;
+
+    touch-action:manipulation;
+}
+
+.controle:active{
+    background:#ff4e96;
+}
+
+/* =========================
+   FASE 3
+========================= */
+
+#fase3{
+
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff83b5 0%,
+            #8b205d 32%,
+            #18051f 75%
+        );
+}
+
+.final-card{
+
+    width:min(90%,620px);
+
+    padding:35px 25px;
+
+    background:rgba(32,4,38,.9);
+
+    border:3px solid #ff86b8;
+
+    border-radius:35px;
+
+    box-shadow:
+        0 0 50px rgba(255,72,151,.7);
+
+    position:relative;
+
+    z-index:5;
+}
+
+.final-card h2{
+
+    font-family:"Bangers",cursive;
+
+    color:#ff86b8;
+
+    font-size:50px;
+
+    letter-spacing:2px;
+}
+
+.presente{
+
+    font-size:110px;
+
+    margin:20px;
+
+    cursor:pointer;
+
+    animation:
+        presente 1.2s infinite;
+}
+
+@keyframes presente{
+
+    0%,100%{
+        transform:scale(1) rotate(-3deg);
+    }
+
+    50%{
+        transform:scale(1.12) rotate(3deg);
+    }
+}
+
+/* =========================
+   CARTA
+========================= */
+
+#carta{
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ff9bc3,
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #ff4d91,
+            transparent 20%
+        ),
+        linear-gradient(
+            135deg,
+            #ffb3d2,
+            #ff6fa9
+        );
+
+    padding:20px;
+
+    overflow-y:auto;
+}
+
+.carta{
+
+    max-width:650px;
+
+    width:100%;
+
+    background:#fff7fb;
+
+    color:#74324e;
+
+    border-radius:35px;
+
+    padding:35px 27px;
+
+    text-align:center;
+
+    border:5px solid #ff4f94;
+
+    box-shadow:
+        0 20px 60px rgba(75,0,35,.4);
+
+    position:relative;
+
+    z-index:5;
+
+    animation:
+        cartaEntrar 1s ease;
+}
+
+@keyframes cartaEntrar{
+
+    from{
+        opacity:0;
+        transform:scale(.5) rotate(-5deg);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
+}
+
+.carta h2{
+
+    color:#e9367d;
+
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.carta p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    margin:10px 0;
+}
+
+.destaque{
+
+    font-weight:800;
+
+    color:#e9367d;
+
+    font-size:22px !important;
+}
+
+.assinatura{
+
+    margin-top:25px !important;
+
+    font-size:21px !important;
+
+    font-weight:bold;
+}
+
+/* =========================
+   CORAÇÕES
+========================= */
+
+.coracao{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:100;
+
+    font-size:25px;
+
+    animation:
+        voar 2.5s linear forwards;
+}
+
+@keyframes voar{
+
+    0%{
+        transform:
+            translateY(0)
+            scale(.5);
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-100vh)
+            rotate(360deg)
+            scale(1.5);
+        opacity:0;
+    }
+}
+
+/* =========================
+   AVISO FASE CONCLUÍDA
+========================= */
+
+.mensagem-fase{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(8,0,15,.75);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:200;
+
+    text-align:center;
+}
+
+.mensagem-fase.show{
+    display:flex;
+}
+
+.mensagem-fase-card{
+
+    width:min(90%,450px);
+
+    background:#250622;
+
+    border:3px solid #ff70aa;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    box-shadow:
+        0 0 40px #ff4e96;
+}
+
+.mensagem-fase-card h2{
+
+    color:#ff76ad;
+
+    font-family:"Bangers",cursive;
+
+    font-size:45px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:500px){
+
+    .titulo{
+        font-size:55px;
+    }
+
+    .spider-logo{
+        font-size:70px;
+    }
+
+    .subtitulo{
+        font-size:18px;
+    }
+
+    .carta{
+        padding:28px 20px;
+    }
+
+    .carta p{
+        font-size:17px;
+    }
+
+    .carta h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     TELA INICIAL
+================================================== -->
+
+<section id="inicio" class="tela ativa">
+
+    <div class="teias-fundo"></div>
+
+    <div class="card-inicio">
+
+        <div class="spider-logo">
+            🕷️
+        </div>
+
+        <h1 class="titulo">
+            MISSÃO ESPECIAL
+        </h1>
+
+        <p class="subtitulo">
+
+            Uma missão secreta foi criada
+            especialmente para você... 👀💗
+
+            <br><br>
+
+            Você está pronta para salvar
+            o dia?
+
+        </p>
+
+        <button class="botao" onclick="comecarJogo()">
+
+            🕸️ ACEITAR MISSÃO
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FASE 1
+================================================== -->
+
+<section id="fase1" class="tela">
+
+    <div class="hud">
+
+        <div class="hud-box">
+
+            🕸️ Teias:
+            <span id="pontos1">0</span>/8
+
+        </div>
+
+        <div class="hud-box">
+
+            ⏱️
+            <span id="tempo1">15</span>s
+
+        </div>
+
+    </div>
+
+
+    <div class="instrucao">
+
+        🕷️ Capture as 8 teias!<br>
+
+        Você tem apenas
+        <span class="timer">15 segundos!</span>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FASE 2
+================================================== -->
+
+<section id="fase2" class="tela">
+
+    <div class="hud">
+
+        <div class="hud-box">
+
+            ⭐
+            <span id="pontos2">0</span>
+
+        </div>
+
+        <div class="hud-box">
+
+            ❤️
+            <span id="vidas">3</span>
+
+        </div>
+
+        <div class="hud-box">
+
+            ⏱️
+            <span id="tempo2">12</span>s
+
+        </div>
+
+    </div>
+
+
+    <!-- LUA -->
+
+    <div class="lua"></div>
+
+
+    <!-- ESTRELAS -->
+
+    <div class="estrela" style="top:15%;left:10%">✦</div>
+
+    <div class="estrela" style="top:25%;left:25%">✧</div>
+
+    <div class="estrela" style="top:18%;left:70%">✦</div>
+
+    <div class="estrela" style="top:32%;left:85%">✧</div>
+
+    <div class="estrela" style="top:12%;left:48%">✦</div>
+
+
+    <!-- PRÉDIOS -->
+
+    <div class="predios">
+
+        <div class="predio" style="height:70%">
+
+            <span class="janela" style="top:25%;left:30%"></span>
+            <span class="janela" style="top:45%;left:65%"></span>
+            <span class="janela" style="top:65%;left:30%"></span>
+
+        </div>
+
+        <div class="predio" style="height:90%">
+
+            <span class="janela" style="top:15%;left:25%"></span>
+            <span class="janela" style="top:30%;left:70%"></span>
+            <span class="janela" style="top:50%;left:30%"></span>
+            <span class="janela" style="top:70%;left:70%"></span>
+
+        </div>
+
+        <div class="predio" style="height:60%">
+
+            <span class="janela" style="top:20%;left:40%"></span>
+            <span class="janela" style="top:50%;left:70%"></span>
+
+        </div>
+
+        <div class="predio" style="height:82%">
+
+            <span class="janela" style="top:20%;left:25%"></span>
+            <span class="janela" style="top:40%;left:65%"></span>
+            <span class="janela" style="top:65%;left:30%"></span>
+
+        </div>
+
+        <div class="predio" style="height:67%">
+
+            <span class="janela" style="top:25%;left:30%"></span>
+            <span class="janela" style="top:55%;left:65%"></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERSONAGEM -->
+
+    <div id="jogador">
+
+        🕷️
+
+    </div>
+
+
+    <!-- CONTROLES -->
+
+    <div class="controles">
+
+        <div
+            class="controle"
+            ontouchstart="moverEsquerda()"
+            onclick="moverEsquerda()">
+
+            ◀️
+
+        </div>
+
+        <div
+            class="controle"
+            ontouchstart="lancarTeia()"
+            onclick="lancarTeia()">
+
+            🕸️
+
+        </div>
+
+        <div
+            class="controle"
+            ontouchstart="moverDireita()"
+            onclick="moverDireita()">
+
+            ▶️
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FASE FINAL
+================================================== -->
+
+<section id="fase3" class="tela">
+
+    <div class="final-card">
+
+        <div style="font-size:55px">
+
+            🕷️ 💗 🕸️
+
+        </div>
+
+        <h2>
+
+            MISSÃO CONCLUÍDA!
+
+        </h2>
+
+        <p style="font-size:20px;margin-top:10px">
+
+            Você salvou a cidade! 🎉
+
+            <br>
+
+            Mas ainda existe uma última missão...
+
+        </p>
+
+        <div
+            class="presente"
+            onclick="abrirPresente()">
+
+            🎁
+
+        </div>
+
+        <p style="font-size:18px">
+
+            Clique no presente
+            para descobrir sua recompensa 💗
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CARTA
+================================================== -->
+
+<section id="carta" class="tela">
+
+    <div class="carta">
+
+        <div style="font-size:50px">
+
+            🕷️ 🎀 💗 🎀 🕷️
+
+        </div>
+
+
+        <h2>
+
+            FELIZ ANIVERSÁRIO! 🎂
+
+        </h2>
+
+
+        <!--
+        ===============================================
+        TROQUE "AMIGA" PELO NOME DELA
+        ===============================================
+        -->
+
+        <p class="destaque">
+
+            Feliz aniversário, AMIGA! 💕
+
+        </p>
+
+
+        <p>
+
+            Se você chegou até aqui,
+            significa que completou
+            a missão mais importante de hoje. 🕷️✨
+
+        </p>
+
+
+        <p>
+
+            Mas, na verdade,
+            essa missão inteira foi só uma
+            desculpa para te lembrar
+            do quanto você é especial. 💗
+
+        </p>
+
+
+        <p>
+
+            Espero que esse novo ano da sua vida
+            seja cheio de momentos incríveis,
+            risadas, aventuras, sonhos realizados
+            e pessoas que façam você se sentir
+            muito amada. 🌸
+
+        </p>
+
+
+        <p>
+
+            Que você continue sendo essa pessoa
+            incrível, divertida e única que você é.
+
+            Nunca deixe ninguém apagar
+            o seu brilho. ✨
+
+        </p>
+
+
+        <p class="destaque">
+
+            Você merece todas as coisas
+            lindas desse mundo! 🌎💗
+
+        </p>
+
+
+        <p>
+
+            E lembra:
+
+            grandes poderes trazem
+            grandes responsabilidades...
+
+            mas hoje sua única responsabilidade
+            é aproveitar muito seu aniversário. 😂🕷️
+
+        </p>
+
+
+        <p class="destaque">
+
+            Feliz aniversário! 🎀💕
+
+        </p>
+
+
+        <p class="assinatura">
+
+            Com muito carinho,
+
+            <br>
+
+            sua amiga 💗
+
+        </p>
+
+
+        <div style="font-size:40px;margin-top:20px">
+
+            🌸 💕 🕷️ 💕 🌸
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     MENSAGEM ENTRE FASES
+================================================== -->
+
+<div
+    class="mensagem-fase"
+    id="mensagemFase">
+
+    <div class="mensagem-fase-card">
+
+        <div style="font-size:60px">
+
+            🕷️
+
+        </div>
+
+        <h2 id="tituloMensagem">
+
+            BOA!
+
+        </h2>
+
+        <p
+            id="textoMensagem"
+            style="font-size:19px;margin:10px 0 20px">
+
+        </p>
+
+        <button
+            class="botao"
+            onclick="fecharMensagem()">
+
+            CONTINUAR 🕸️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   VARIÁVEIS
+================================================== */
+
+let pontos1 = 0;
+
+let pontos2 = 0;
+
+let vidas = 3;
+
+let jogadorPos = 50;
+
+let tempo1;
+
+let tempo2;
+
+let jogo2 = false;
+
+
+/* ==================================================
+   TROCAR TELA
+================================================== */
+
+function trocarTela(id){
+
+    document
+        .querySelectorAll(".tela")
+        .forEach(t => {
+
+            t.classList.remove("ativa");
+
+        });
+
+    document
+        .getElementById(id)
+        .classList.add("ativa");
+}
+
+
+/* ==================================================
+   COMEÇAR
+================================================== */
+
+function comecarJogo(){
+
+    pontos1 = 0;
+
+    document
+        .getElementById("pontos1")
+        .textContent = 0;
+
+    trocarTela("fase1");
+
+    criarTeias();
+
+    iniciarTimer1();
+}
+
+
+/* ==================================================
+   FASE 1 — TEIAS
+================================================== */
+
+function criarTeias(){
+
+    const fase =
+        document.getElementById("fase1");
+
+    for(let i = 0; i < 8; i++){
+
+        const teia =
+            document.createElement("div");
+
+        teia.className = "teia";
+
+        teia.innerHTML = "🕸️";
+
+        teia.style.left =
+            (8 + Math.random() * 84) + "%";
+
+        teia.style.top =
+            (15 + Math.random() * 70) + "%";
+
+        teia.onclick = function(){
+
+            teia.remove();
+
+            pontos1++;
+
+            document
+                .getElementById("pontos1")
+                .textContent = pontos1;
+
+            criarCoracoes(
+                window.innerWidth / 2,
+                window.innerHeight / 2,
+                4
+            );
+
+            if(pontos1 >= 8){
+
+                finalizarFase1();
+
+            }
+
+        };
+
+        fase.appendChild(teia);
+    }
+}
+
+
+/* ==================================================
+   TIMER FASE 1
+================================================== */
+
+function iniciarTimer1(){
+
+    let tempo = 15;
+
+    document
+        .getElementById("tempo1")
+        .textContent = tempo;
+
+    tempo1 =
+        setInterval(() => {
+
+            tempo--;
+
+            document
+                .getElementById("tempo1")
+                .textContent = tempo;
+
+            if(tempo <= 0){
+
+                finalizarFase1();
+
+            }
+
+        },1000);
+}
+
+
+/* ==================================================
+   TERMINAR FASE 1
+================================================== */
+
+function finalizarFase1(){
+
+    clearInterval(tempo1);
+
+    document
+        .querySelectorAll("#fase1 .teia")
+        .forEach(t => t.remove());
+
+    mostrarMensagem(
+        "TEIAS CAPTURADAS! 🕸️",
+        "Muito bem! Agora vem a parte mais divertida... prepare-se para balançar pela cidade! 🕷️🌃"
+    );
+
+}
+
+
+/* ==================================================
+   MENSAGEM
+================================================== */
+
+let proximaAcao = null;
+
+function mostrarMensagem(titulo,texto){
+
+    document
+        .getElementById("tituloMensagem")
+        .textContent = titulo;
+
+    document
+        .getElementById("textoMensagem")
+        .textContent = texto;
+
+    document
+        .getElementById("mensagemFase")
+        .classList.add("show");
+
+    if(titulo.includes("TEIAS")){
+
+        proximaAcao = iniciarFase2;
+
+    }
+
+}
+
+
+function fecharMensagem(){
+
+    document
+        .getElementById("mensagemFase")
+        .classList.remove("show");
+
+    if(proximaAcao){
+
+        proximaAcao();
+
+        proximaAcao = null;
+
+    }
+}
+
+
+/* ==================================================
+   FASE 2
+================================================== */
+
+function iniciarFase2(){
+
+    trocarTela("fase2");
+
+    pontos2 = 0;
+
+    vidas = 3;
+
+    jogadorPos = 50;
+
+    jogo2 = true;
+
+    document
+        .getElementById("pontos2")
+        .textContent = 0;
+
+    document
+        .getElementById("vidas")
+        .textContent = 3;
+
+    document
+        .getElementById("jogador")
+        .style.left = "50%";
+
+    iniciarTimer2();
+
+    criarObstaculos();
+
+    criarColetaveis();
+}
+
+
+/* ==================================================
+   TIMER FASE 2 — APENAS 12 SEGUNDOS
+================================================== */
+
+function iniciarTimer2(){
+
+    let tempo = 12;
+
+    document
+        .getElementById("tempo2")
+        .textContent = tempo;
+
+    tempo2 =
+        setInterval(() => {
+
+            tempo--;
+
+            document
+                .getElementById("tempo2")
+                .textContent = tempo;
+
+            if(tempo <= 0){
+
+                finalizarFase2();
+
+            }
+
+        },1000);
+}
+
+
+/* ==================================================
+   MOVIMENTO
+================================================== */
+
+function moverEsquerda(){
+
+    if(!jogo2) return;
+
+    jogadorPos -= 10;
+
+    if(jogadorPos < 8)
+        jogadorPos = 8;
+
+    document
+        .getElementById("jogador")
+        .style.left = jogadorPos + "%";
+
+    lancarTeia();
+
+}
+
+
+function moverDireita(){
+
+    if(!jogo2) return;
+
+    jogadorPos += 10;
+
+    if(jogadorPos > 92)
+        jogadorPos = 92;
+
+    document
+        .getElementById("jogador")
+        .style.left = jogadorPos + "%";
+
+    lancarTeia();
+
+}
+
+
+/* ==================================================
+   TEIA
+================================================== */
+
+function lancarTeia(){
+
+    if(!jogo2) return;
+
+    const jogador =
+        document.getElementById("jogador");
+
+    const teia =
+        document.createElement("div");
+
+    teia.className = "teia-tiro";
+
+    teia.innerHTML = "🕸️";
+
+    teia.style.left =
+        jogadorPos + "%";
+
+    teia.style.bottom = "38%";
+
+    document
+        .getElementById("fase2")
+        .appendChild(teia);
+
+    setTimeout(() => {
+
+        teia.remove();
+
+    },500);
+}
+
+
+/* ==================================================
+   OBSTÁCULOS
+================================================== */
+
+function criarObstaculos(){
+
+    if(!jogo2) return;
+
+    const obstaculo =
+        document.createElement("div");
+
+    obstaculo.className = "obstaculo";
+
+    const inimigos = [
+        "👹",
+        "👿",
+        "💣",
+        "🦹"
+    ];
+
+    obstaculo.innerHTML =
+        inimigos[
+            Math.floor(
+                Math.random() *
+                inimigos.length
+            )
+        ];
+
+    const pos =
+        8 + Math.random() * 84;
+
+    obstaculo.style.left =
+        pos + "%";
+
+    obstaculo.style.animationDuration =
+        (2.2 + Math.random() * 1.2) + "s";
+
+    document
+        .getElementById("fase2")
+        .appendChild(obstaculo);
+
+
+    const verificar =
+        setInterval(() => {
+
+            if(!jogo2){
+
+                clearInterval(verificar);
+                return;
+
+            }
+
+            const o =
+                obstaculo.getBoundingClientRect();
+
+            const j =
+                document
+                    .getElementById("jogador")
+                    .getBoundingClientRect();
+
+            if(
+                o.bottom > j.top &&
+                o.top < j.bottom &&
+                o.left < j.right &&
+                o.right > j.left
+            ){
+
+                obstaculo.remove();
+
+                perderVida();
+
+                clearInterval(verificar);
+
+            }
+
+        },50);
+
+
+    obstaculo.addEventListener(
+        "animationend",
+        () => {
+
+            obstaculo.remove();
+
+            clearInterval(verificar);
+
+        }
+    );
+
+
+    setTimeout(
+        criarObstaculos,
+        650
+    );
+}
+
+
+/* ==================================================
+   COLETÁVEIS
+================================================== */
+
+function criarColetaveis(){
+
+    if(!jogo2) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "coletavel";
+
+    item.innerHTML = "🕷️";
+
+    const pos =
+        8 + Math.random() * 84;
+
+    item.style.left =
+        pos + "%";
+
+    item.style.animationDuration =
+        "2.8s";
+
+    document
+        .getElementById("fase2")
+        .appendChild(item);
+
+
+    const verificar =
+        setInterval(() => {
+
+            if(!jogo2){
+
+                clearInterval(verificar);
+                return;
+
+            }
+
+            const o =
+                item.getBoundingClientRect();
+
+            const j =
+                document
+                    .getElementById("jogador")
+                    .getBoundingClientRect();
+
+            if(
+                o.bottom > j.top &&
+                o.top < j.bottom &&
+                o.left < j.right &&
+                o.right > j.left
+            ){
+
+                pontos2++;
+
+                document
+                    .getElementById("pontos2")
+                    .textContent =
+                    pontos2;
+
+                criarCoracoes(
+                    o.left,
+                    o.top,
+                    5
+                );
+
+                item.remove();
+
+                clearInterval(verificar);
+
+            }
+
+        },50);
+
+
+    item.addEventListener(
+        "animationend",
+        () => {
+
+            item.remove();
+
+            clearInterval(verificar);
+
+        }
+    );
+
+
+    setTimeout(
+        criarColetaveis,
+        900
+    );
+}
+
+
+/* ==================================================
+   VIDA
+================================================== */
+
+function perderVida(){
+
+    vidas--;
+
+    document
+        .getElementById("vidas")
+        .textContent = vidas;
+
+    if(vidas <= 0){
+
+        /*
+        Mesmo se perder todas as vidas,
+        não fica presa.
+        */
+
+        finalizarFase2();
+
+    }
+
+}
+
+
+/* ==================================================
+   FINAL FASE 2
+================================================== */
+
+function finalizarFase2(){
+
+    if(!jogo2) return;
+
+    jogo2 = false;
+
+    clearInterval(tempo2);
+
+    document
+        .querySelectorAll(
+            "#fase2 .obstaculo, #fase2 .coletavel, #fase2 .teia-tiro"
+        )
+        .forEach(e => e.remove());
+
+
+    criarCoracoes(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        25
+    );
+
+
+    setTimeout(() => {
+
+        trocarTela("fase3");
+
+    },700);
+
+}
+
+
+/* ==================================================
+   PRESENTE
+================================================== */
+
+function abrirPresente(){
+
+    criarCoracoes(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        60
+    );
+
+    setTimeout(() => {
+
+        trocarTela("carta");
+
+        criarChuvaFinal();
+
+    },900);
+}
+
+
+/* ==================================================
+   CORAÇÕES
+================================================== */
+
+function criarCoracoes(x,y,quantidade){
+
+    const emojis = [
+        "💗",
+        "💕",
+        "💖",
+        "💞",
+        "🎀",
+        "🌸",
+        "✨"
+    ];
+
+    for(let i=0;i<quantidade;i++){
+
+        const c =
+            document.createElement("div");
+
+        c.className = "coracao";
+
+        c.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+        c.style.left =
+            x +
+            (Math.random()-.5)*200 +
+            "px";
+
+        c.style.top =
+            y +
+            (Math.random()-.5)*100 +
+            "px";
+
+        c.style.animationDuration =
+            (1.5 + Math.random()*2) +
+            "s";
+
+        document
+            .body
+            .appendChild(c);
+
+        setTimeout(() => {
+
+            c.remove();
+
+        },3500);
+
+    }
+}
+
+
+/* ==================================================
+   CHUVA FINAL
+================================================== */
+
+function criarChuvaFinal(){
+
+    setInterval(() => {
+
+        const c =
+            document.createElement("div");
+
+        c.className = "coracao";
+
+        const emojis = [
+            "💗",
+            "💕",
+            "🎀",
+            "🌸",
+            "✨",
+            "🕷️"
+        ];
+
+        c.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random()*emojis.length
+                )
+            ];
+
+        c.style.left =
+            Math.random()*100 +
+            "vw";
+
+        c.style.top =
+            "100vh";
+
+        c.style.fontSize =
+            (18 + Math.random()*25) +
+            "px";
+
+        document
+            .body
+            .appendChild(c);
+
+        setTimeout(() => {
+
+            c.remove();
+
+        },3000);
+
+    },250);
+
+}
+
+
+/* ==================================================
+   CONTROLE PELO TECLADO
+   (caso alguém abra no computador)
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    e => {
+
+        if(e.key === "ArrowLeft")
+            moverEsquerda();
+
+        if(e.key === "ArrowRight")
+            moverDireita();
+
+        if(e.code === "Space")
+            lancarTeia();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
